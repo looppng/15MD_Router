@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 const Navbar = () => {
 
 	return (
@@ -7,13 +9,13 @@ const Navbar = () => {
 						<div className="collapse navbar-collapse ms-4" id="navbarNavDropdown">
 							<ul className="navbar-nav">
 								<li className="nav-item">
-									<a className="nav-link active" aria-current="page" href="/">Home</a>
+									<Link className="nav-link" to="/">Home</Link>
 								</li>
 								<li className="nav-item">
-									<a className="nav-link" href="/inventory">Inventory</a>
+									<Link className="nav-link" to="/inventory">Inventory</Link>
 								</li>
 								<li className="nav-item">
-									<a className="nav-link" href="/create">Create</a>
+									<Link className="nav-link" to="/create">Create</Link>
 								</li>
 							</ul>
 						</div>

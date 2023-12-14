@@ -1,40 +1,55 @@
-import { useEffect, useState } from 'react';
-import Button from './Button/Button.tsx';
+import {useQuery} from "@tanstack/react-query";
+import Card from "./Card/card.tsx";
+import FormInventory from "./FormInventory/FormInventory.tsx";
+import {getItems, MyInventory} from "./api.tsx";
+import '../App.css'
 
 const ItemInventory = () => {
 
-	const [items, setItems] = useState([]);
+	const { data: items, isLoading, isError } = useQuery({
+		queryFn: () => getItems(),
+		queryKey: ["results"]
+	});
 
-	useEffect(() => {
-		fetch('http://localhost:3002/inventory')
-			.then((response) => response.json())
-			.then((data) => setItems(data.results))
+	if (isLoading) {
+		return <div className="container mt-3">Loading...</div>;
+	}
 
-			.catch((error) => console.error('Error fetching data:', error));
-	}, []);
+	if (isError) {
+		return <div className="container mt-3">Error Loading Data...</div>;
+	}
 
 	return (
-		<div className="container">
+		<section className="add-item">
+			<div className="container mt-3">
 				<div className="row">
-					<div className="col-5 card__wrapper">
-						{items.map(({itemName, itemDescription, itemPrice, itemStock}) => (
-								<div className="card">
-									<h3 className='card__heading'>{itemName}</h3>
-									<div className="card__info">
-										<span className='card__description'>Description: {itemDescription}</span>
-										<span className='card__price'>Price: {itemPrice}</span>
-										<span className='card__stock'>In Stock: {itemStock} unit/s</span>
-									</div>
-									<div className="card__action">
-										<Button
-												text='Delete'
-										/>
-									</div>
-								</div>
+					<div className="col-6">
+						<FormInventory
+								onSubmit={() => {
+									console.log('submitted')
+								}}
+						/>
+					</div>
+				</div>
+			</div>
+			<div className="container">
+				<div className="row">
+					<div className="wrapper">
+						{items?.map(({name, description, price, stock}: MyInventory) => (
+							<div className="flex" key={Math.random()}>
+								<Card
+									name={name}
+									description={description}
+									price={price}
+									stock={stock}
+									onDelete={() => {
+									}}/>
+							</div>
 						))}
 					</div>
 				</div>
 			</div>
+		</section>
 	);
 };
 

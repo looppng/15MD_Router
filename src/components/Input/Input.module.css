@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.label {
+    font-weight: 600;
+    width: 100%;
+}
+
+.input {
+    padding: 0.25rem;
+    height: 35px;
+    border-radius: 6px;
+    border: 1px solid midnightblue;
+    width: 100%;
+}
+
+.input::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    font-size: 14px;
+}
