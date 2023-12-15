@@ -55,7 +55,7 @@ const FormInventory = ({onSubmit}: FormInventoryProps) => {
 						label='Item Price'
 						type='number'
 						value={formValues.price}
-						placeholder='Item description...'
+						placeholder='Item price...'
 						onChange={(e) => {
 							setFormValues({
 								...formValues,

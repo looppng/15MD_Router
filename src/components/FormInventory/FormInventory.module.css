@@ -1,5 +1,5 @@
 .item {
-    padding: 4rem;
+    padding: 6rem;
 }
 
 .heading {
@@ -9,7 +9,6 @@
 
 .form {
     padding: 2rem;
-    border: 1px solid darkslategray;
     border-radius: 10px;
     display: flex;
     flex-direction: column;

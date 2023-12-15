@@ -24,6 +24,7 @@ const EditFormInventory = ({ onSubmit, initialValue }: FormInventoryProps) => {
 
 
 	return (
+		<div className='col-5'>
 			<form className={style.form} onSubmit={(e) => {
 				e.preventDefault();
 				console.log(formValues)
@@ -79,11 +80,12 @@ const EditFormInventory = ({ onSubmit, initialValue }: FormInventoryProps) => {
 				/>
 				<div className={style.buttonWrapper}>
 					<Button
-							text='Edit'
+							text='Save'
 							type='submit'
 					/>
 				</div>
 			</form>
+		</div>
 	);
 };
 

@@ -1,8 +1,7 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
-import {getItemsById, updateItem} from "../api.tsx";
+import {getItemsById, MyInventory, updateItem} from "../api.tsx";
 import EditFormInventory from "../FormInventory/EditFormInventory.tsx";
-import Item from "./Item.tsx";
 
 const EditItem = () => {
 	const queryClient = useQueryClient();
@@ -31,13 +30,12 @@ const EditItem = () => {
 		return <div className="container mt-3">Error Loading Data...{error.message}</div>;
 	}
 
-	const handleSubmit = (updatedItem) => {
+	const handleSubmit = (updatedItem : MyInventory) => {
 		updateItemMutation.mutate({id, ...updatedItem})
 	}
 
 	return (
 			<>
-				<div className='container mt-3'>EDIT PAGE</div>
 				<div className='container mt-3'><EditFormInventory  onSubmit={handleSubmit} initialValue={item}/></div>
 			</>
 	)

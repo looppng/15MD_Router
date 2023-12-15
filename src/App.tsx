@@ -5,6 +5,7 @@ import Home from './components/Pages/Home.tsx'
 import Navbar from "./components/Pages/Navbar.tsx";
 import NotFound from './components/Pages/NotFound.tsx'
 import EditItem from "./components/Pages/EditItem.tsx";
+import AboutUs from "./components/Pages/AboutUs.tsx"
 
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
       <Route path='/inventory' element={<ItemInventory/>} />
       <Route path='/inventory/:id' element={<Item />}/>
       <Route path='/inventory/:id/edit' element={<EditItem/>} />
+      <Route path='/about' element={<AboutUs/>} />
       <Route path='*' element={<NotFound/>} />
     </Routes>
   </>

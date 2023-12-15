@@ -10,5 +10,18 @@
     display: flex;
 }
 
+.product-image {
+    width: 100%;
+    height: 200px;
+}
 
+.product {
+    margin: 0.5rem;
+}
+
+.featured-products {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
 

@@ -1,35 +1,26 @@
 .card {
     padding: 1rem;
     border: 1px solid midnightblue;
-    border-radius: 10px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    background-color: honeydew;
+    background-color: #ffffff;
     justify-content: space-between;
+    width: 100%;
 }
 
 .heading {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
 .info {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-}
-
-.description {
-
-}
-
-.price {
-
-}
-
-.stock {
-
+    gap: 1rem;
+    font-size: 20px;
+    justify-content: space-between;
 }
 
 .action {

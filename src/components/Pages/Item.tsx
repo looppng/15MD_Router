@@ -1,5 +1,5 @@
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
-import {getItemsById, MyInventory, removeItem} from "../api.tsx";
+import {getItemsById, removeItem} from "../api.tsx";
 import {useNavigate, useParams} from "react-router-dom";
 import Card from "../Card/card.tsx";
 
