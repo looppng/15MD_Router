@@ -6,8 +6,8 @@ type InputProps = {
 	value: string;
 	placeholder: string;
 	required?: boolean;
-	type?: HTMLInputElement['type']
-	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+	type?: HTMLInputElement['type'];
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const Input = ({label, value, placeholder, required = true, type = 'text', onChange}: InputProps) => {
 	const id = useId()

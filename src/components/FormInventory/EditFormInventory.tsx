@@ -14,12 +14,14 @@ export type Item = typeof initFormValues
 
 type FormInventoryProps = {
 	onSubmit: (payload: Item) => void
+	initialValue: Item
 }
 
 
-const FormInventory = ({onSubmit}: FormInventoryProps) => {
+const EditFormInventory = ({ onSubmit, initialValue }: FormInventoryProps) => {
 
-	const [formValues, setFormValues] = useState(initFormValues)
+	const [formValues, setFormValues] = useState(initialValue)
+
 
 	return (
 			<form className={style.form} onSubmit={(e) => {
@@ -28,7 +30,7 @@ const FormInventory = ({onSubmit}: FormInventoryProps) => {
 				onSubmit(formValues)
 				setFormValues(initFormValues)
 			}}>
-				<h3 className={style.heading}>Add an item to inventory</h3>
+				<h3 className={style.heading}>Edit an item to inventory</h3>
 				<Input
 						label='Item Name'
 						value={formValues.name}
@@ -77,7 +79,7 @@ const FormInventory = ({onSubmit}: FormInventoryProps) => {
 				/>
 				<div className={style.buttonWrapper}>
 					<Button
-							text='Add Item'
+							text='Edit'
 							type='submit'
 					/>
 				</div>
@@ -85,4 +87,4 @@ const FormInventory = ({onSubmit}: FormInventoryProps) => {
 	);
 };
 
-export default FormInventory;
+export default EditFormInventory;

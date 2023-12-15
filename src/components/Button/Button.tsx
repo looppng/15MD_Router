@@ -5,12 +5,14 @@ type ButtonProps = {
 	size?: 'large' | 'small'
 	onClick?: () => void
 	type?: HTMLButtonElement['type']
+	onSubmit?: () => void
 }
-const Button = ({text, onClick, type = 'button', size = 'large'} : ButtonProps) => {
+const Button = ({text, onClick, type = 'button', size = 'large', onSubmit} : ButtonProps) => {
 	return (
 			<button
 					className={`${style.button} ${size === 'small' ? style.small : 'small'}`}
 					onClick={onClick}
+					onSubmit={onSubmit}
 					type={type}
 			>
 				{text}

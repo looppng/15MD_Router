@@ -1,9 +1,10 @@
 import style from './card.module.css'
 import Button from "../Button/Button.tsx";
-import {Link} from "react-router-dom";
 import {useId} from "react";
+import {useNavigate} from "react-router-dom";
 
 type CardProps = {
+	id: number
 	name: string
 	description: string
 	price: string
@@ -11,12 +12,13 @@ type CardProps = {
 	onDelete: () => void
 }
 
-const Card = ({name, description, price, stock, onDelete}: CardProps) => {
-	const id = useId()
+const Card = ({id, name, description, price, stock, onDelete}: CardProps) => {
+
+	const navigate = useNavigate();
 
 	return (
 			<div className={style.card}>
-				<Link to={`/inventory${id}`}><h3 className={style.heading}>{name}</h3></Link>
+				<h3 onClick={() => navigate(`/inventory/${id}`)} className={style.heading}>{name}</h3>
 				<div className={style.info}>
 					<span>Description: {description}</span>
 					<span>Price: {price}</span>
@@ -31,6 +33,7 @@ const Card = ({name, description, price, stock, onDelete}: CardProps) => {
 					<Button
 							text='Edit'
 							size='small'
+							onClick={ () => navigate(`/inventory/${id}/edit`)}
 					/>
 				</div>
 			</div>
